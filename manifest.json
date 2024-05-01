@@ -6,18 +6,22 @@
     "permissions": [
         "storage",
         "activeTab",
-        "notifications"
-    ],
-    
-    "content_scripts": [
-        {
-            "matches": ["*://*/*"],
-            "js": ["jquery.min.js", "content.js"]
-        }
+        "notifications",
+        "scripting",
+        "alarms"
     ],
     "background": {
         "service_worker": "background.js"
     },
+    "content_scripts": [
+      {
+        "matches": ["https://tickets.paleo.ch/*"],
+        "js": ["jquery.min.js","content.js"]
+      }
+    ],
+    "host_permissions": [
+        "https://tickets.paleo.ch/*"
+    ],
     "icons": {
         "16": "icon.png",
         "48": "icon.png",
