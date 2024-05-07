@@ -13,14 +13,14 @@ window.addEventListener("load", function() {
         // Your code here
         console.log(selectedDays);
         // Loop through each div with class "stx-product-content"
-        $('.stx-product-content').each(function() {
+        document.querySelectorAll(".stx-product-content").each(function(element) {
             // Find the <p> element containing the day of the week
-            var dayOfWeek = $(this).find('p').text().trim().toLowerCase().split(' ')[0];
+            var dayOfWeek = element.querySelector('p').textContent.trim().toLowerCase().split(' ')[0];
             // Check if the day of the week matches one of the selected days
             if (selectedDays.includes(dayOfWeek)) {
                 console.log("Checking for " + dayOfWeek);
                 // Check if a span with text "Sold out" exists within the div
-                if ($(this).find('span:contains("Sold out")').length === 0) {
+                if (element.querySelectorAll(`span`).filter(( sub_element ) => { return sub_element.textContent.contains("Sold out")} ).length === 0) {
                     // Tickets are available, send a notification
                     availableDays.push(dayOfWeek);}
             }

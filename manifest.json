@@ -16,7 +16,7 @@
     "content_scripts": [
       {
         "matches": ["https://tickets.paleo.ch/*"],
-        "js": ["jquery.min.js","content.js"]
+        "js": ["content.js"]
       }
     ],
     "host_permissions": [
